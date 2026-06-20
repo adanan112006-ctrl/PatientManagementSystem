@@ -1,2 +1,4 @@
-print("Patient Management System")
-print("Welcome!")
+patients =[]
+while True:
+    print("\n=== Patient Management Syystem ===")
+    print("")
