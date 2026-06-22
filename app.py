@@ -5,7 +5,8 @@ while True:
     print("1. Add Patient")
     print("2. View Patients")
     print("3. Delete Patient")
-    print("4. Exit")
+    print("4. search Patient")
+    print("5. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -42,6 +43,21 @@ while True:
         print("Patient deleted successfully!")
 
     elif choice == "4":
+        search_name = input("Enter name to search: ")
+
+        found = False
+
+        for patient in patients:
+            if patient["name"] == search_name:
+                print("\n Found:")
+                print(f"Name:{patient['name']} | Age:{patient['age']}")
+                found = True
+                break
+
+        if not found:
+            print("Patient not found")
+
+    elif choice == "5":
         print("Goodbye!")
         break
 
