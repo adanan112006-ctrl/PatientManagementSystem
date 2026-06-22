@@ -27,8 +27,8 @@ while True:
     elif choice == "2":
         print("\nPatients:")
 
-        for patient in patients:
-            print(patient["name"], patient["age"])
+        for i in range(len(patients)):
+            print(f"{i+1}. Name:{patients[i]['name']} | Age: {patients[i]['age']}")
 
     elif choice == "3":
         print("\npatients")
