@@ -1,12 +1,34 @@
 patients = []
 
+try:
+    file = open("patients.txt", "r")
+
+    for line in file:
+        line = line.strip()
+
+        parts = line.split(",")
+
+        patient = {
+            "name": parts[0],
+            "age": int(parts[1])
+        }
+
+        patients.append(patient)
+
+    file.close()
+    
+
+except FileNotFoundError:
+    pass
+
 while True:
     print("\n=== Patient Management System ===")
     print("1. Add Patient")
     print("2. View Patients")
     print("3. Delete Patient")
     print("4. search Patient")
-    print("5. Exit")
+    print("5. Save Patients")
+    print("6. Exit")
 
     choice = input("Enter your choice: ")
 
@@ -57,7 +79,20 @@ while True:
         if not found:
             print("Patient not found")
 
+
     elif choice == "5":
+        file = open("patients.txt", "w")
+
+        for patient in patients:
+            file.write(f"{patient['name']},{patient['age']}\n")
+
+        file.close()
+
+        print("patients saved successfully!")
+
+
+
+    elif choice == "6":
         print("Goodbye!")
         break
 
